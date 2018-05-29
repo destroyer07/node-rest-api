@@ -1,3 +1,5 @@
+const uuid = require("uuid/v1");
+
 /**
  * Classe de acesso ao banco pelo Mongoose
  * @param {Mongoose model} model - Model gerado pelo Mongoose
@@ -37,6 +39,10 @@ module.exports = function DbAccess(model) {
          * Insere vários objetos no banco
          */
         insert: (req, res) => {
+
+            if (!req.body._id) {
+                req.body._id = uuid();
+            }
 
             // Objetos a serem adicionados
             let array = Array.isArray(req.body)

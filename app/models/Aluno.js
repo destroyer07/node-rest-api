@@ -2,6 +2,9 @@
  * Classe Aluno
  */
 module.exports = {
+    _id: {
+        type: String
+    },
     nome: {
         type: String
     },
